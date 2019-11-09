@@ -1,11 +1,11 @@
 class GoalsController < ApplicationController
+    before_action :find_goal, only: [:show, :edit, :update, :destroy]
 
     def index
         @goals = Goal.all
     end
 
     def show
-        @goal = Goal.find(params[:id])
     end 
 
     def new
@@ -17,16 +17,13 @@ class GoalsController < ApplicationController
     end
 
     def edit
-        @goal = Goal.find(params[:id])
     end
 
     def update
-        @goal = Goal.find(params[:id])
         @goal.update(goal_params)
     end 
 
     def destroy
-        @goal = Goal.find(params[:id])
         @goal.destroy
     end 
 
@@ -34,6 +31,10 @@ class GoalsController < ApplicationController
 
     def goal_params #defining strong params
         params.require(:goal).permit(:name, :user_id, :destination_id)
+    end 
+
+    def find_goal
+        @goal = Goal.find(params[:id])
     end 
     
 end
