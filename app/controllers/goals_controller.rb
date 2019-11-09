@@ -14,6 +14,7 @@ class GoalsController < ApplicationController
 
     def create
         @goal = Goal.create(goal_params)
+        #add validations
         redirect_to goal_path(@goal)
     end
 
@@ -22,11 +23,13 @@ class GoalsController < ApplicationController
 
     def update
         @goal.update(goal_params)
+        #add validations
         redirect_to goal_path(@goal)
     end 
 
     def destroy
         @goal.destroy
+        #add validations
         redirect_to goals_path
     end 
 
