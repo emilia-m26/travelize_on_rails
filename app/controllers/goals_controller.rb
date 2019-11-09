@@ -13,9 +13,16 @@ class GoalsController < ApplicationController
     end 
 
     def create
-        @goal = Goal.create(goal_params)
+        @goal = Goal.new(goal_params)
         #add validations
-        redirect_to goal_path(@goal)
+        if @goal.save
+            redirect_to goal_path(@goal)
+        else
+            @errors = @goal.errors.full_messages
+            redirect_to new_goal_path
+            #add error message if goal not created
+        end 
+            
     end
 
     def edit
