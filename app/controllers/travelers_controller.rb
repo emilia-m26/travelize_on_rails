@@ -1,4 +1,5 @@
 class TravelersController < ApplicationController
+    #responsible for login, logout, signup, and index all users
 
     def index
         @travelers = Traveler.all
@@ -10,7 +11,6 @@ class TravelersController < ApplicationController
         redirect_to goals_path
     end
 
-    #responsible for login, logout, signup, and index all users
     def new #show signup form
        @traveler = Traveler.new
     end 
@@ -26,6 +26,8 @@ class TravelersController < ApplicationController
           render :new
         end
     end 
+
+
 
     private
 

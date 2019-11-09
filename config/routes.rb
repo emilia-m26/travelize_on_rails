@@ -4,10 +4,12 @@ Rails.application.routes.draw do
   resources :destinations
   resources :goals
   resources :travelers
-  
+
   #custom link of /passport
   get 'passport', :to => 'destinations#index' 
-  #custom link or travel inspiration - lists all users
-  get 'travel-inspiration', :to => 'travelers#index' 
+  #custom link for travel inspiration - lists all users
+  get 'travel-inspiration', :to => 'travelers#index'
+  #custom link for signup
+  get 'signup', :to => 'travelers#new' 
 end
 
