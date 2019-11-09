@@ -14,6 +14,7 @@ class GoalsController < ApplicationController
 
     def create
         @goal = Goal.create(goal_params)
+        redirect_to goal_path(@goal)
     end
 
     def edit
@@ -21,10 +22,12 @@ class GoalsController < ApplicationController
 
     def update
         @goal.update(goal_params)
+        redirect_to goal_path(@goal)
     end 
 
     def destroy
         @goal.destroy
+        redirect_to goals_path
     end 
 
     private 
