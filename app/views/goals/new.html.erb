@@ -1,1 +1,7 @@
 <h1>new goal page</h1>
+
+<%= form_for @goal do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<%= f.submit %>
+<% end %>
