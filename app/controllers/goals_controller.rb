@@ -19,6 +19,7 @@ class GoalsController < ApplicationController
             redirect_to goal_path(@goal)
         else
             @errors = @goal.errors.full_messages #[2]
+            #flash[:error]
             render :new
             #add custom error message if goal not created
         end 
