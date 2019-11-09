@@ -5,6 +5,9 @@ class TravelersController < ApplicationController
         #where all travelers will be listed
     end 
 
+    #responsible for
+    #login, logout, signup
+
     
 
 end
