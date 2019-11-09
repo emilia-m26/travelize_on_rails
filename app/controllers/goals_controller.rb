@@ -1,5 +1,5 @@
 class GoalsController < ApplicationController
-    before_action :find_goal, only: [:show, :edit, :update, :destroy]
+    #before_action :find_goal, only: [:show, :edit, :update, :destroy]
 
     def index
         @goals = Goal.all
@@ -9,7 +9,7 @@ class GoalsController < ApplicationController
     end 
 
     def new
-        @goal = Goal.new
+       @goal = Goal.new
     end 
 
     def create
