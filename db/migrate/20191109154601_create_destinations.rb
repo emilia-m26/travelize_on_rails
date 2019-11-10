@@ -4,7 +4,7 @@ class CreateDestinations < ActiveRecord::Migration[6.0]
       t.string :location
       t.text :description
       t.date :date_traveled
-      t.boolean :completed
+      t.boolean :completed, :null => false, :default => false
       t.integer :traveler_id
       t.integer :goal_id
 

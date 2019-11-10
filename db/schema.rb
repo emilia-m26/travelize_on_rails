@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2019_11_09_200634) do
     t.string "location"
     t.text "description"
     t.date "date_traveled"
-    t.boolean "completed"
+    t.boolean "completed", default: false, null: false
     t.integer "traveler_id"
     t.integer "goal_id"
     t.datetime "created_at", precision: 6, null: false
