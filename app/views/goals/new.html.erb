@@ -12,18 +12,21 @@
 <%= f.label :name %>
 <%= f.text_field :name %>
 
-<p>
+
 <h2> Destinations: </h2>
+<p>
     <%= f.fields_for :destinations do |d| %>
     <%= d.label :location %>
     <%= d.text_field :location %>
     <%= d.label :description %>
     <%= d.text_field :description %>
-    <%= d.label :date_traveled%>
-    <%= d.text_field :date_traveled %>
     <%= d.label :completed %>
     <%= d.check_box :completed %>
-    <% end %>
+    <%= d.label :date_traveled%>
+    <%= d.text_field :date_traveled %>
 </p>
+    <% end %>
 <%= f.submit %>
     <% end %>
+
+(completed and date traveled will move to edit destination page once a destination is being completed to add a date traveled and use checkbox)
