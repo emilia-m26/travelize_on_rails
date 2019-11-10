@@ -1,4 +1,4 @@
-<h1>new goal page</h1>
+<h1>Let's Create a New Goal ... </h1>
 
 
 <% if @errors && !@errors.empty? %>
@@ -7,14 +7,23 @@
     <% end %>
 <% end %>
 
-
-
-
+<h2> Goal: </h2>
 <%= form_for @goal do |f| %>
-<%= f.label :Name %>
+<%= f.label :name %>
 <%= f.text_field :name %>
+
+<p>
+<h2> Destinations: </h2>
+    <%= f.fields_for :destinations do |d| %>
+    <%= d.label :location %>
+    <%= d.text_field :location %>
+    <%= d.label :description %>
+    <%= d.text_field :description %>
+    <%= d.label :date_traveled%>
+    <%= d.text_field :date_traveled %>
+    <%= d.label :completed %>
+    <%= d.check_box :completed %>
+    <% end %>
+</p>
 <%= f.submit %>
-<% end %>
-
-
-(later add ability to add destinations within goal form)
+    <% end %>
