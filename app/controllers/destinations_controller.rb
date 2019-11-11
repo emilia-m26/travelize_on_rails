@@ -18,9 +18,18 @@ class DestinationsController < ApplicationController
     end 
 
     def new
+        if params[:id]
+            @goal = Goal.find(params[:id])
+            @destination = @goal.destinations.build
+        else
+        @destination = Destination.new
+        end
     end 
     
     def create
+        Destination.create(destination_params)
+        #need to figure out redirect
+        #redirect_to "/goals/:id"
     end 
 
     def edit
@@ -31,5 +40,11 @@ class DestinationsController < ApplicationController
 
     def destroy
     end
+
+    private
+    def destination_params
+        params.require(:destination).permit(:location, :description, :date_traveled, :completed, :traveler_id, :goal_id)
+  
+    end 
 
 end

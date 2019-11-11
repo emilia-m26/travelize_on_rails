@@ -17,7 +17,21 @@ Rails.application.routes.draw do
   # #nested show route to dispaly specific destination details
   # get 'goals/:id/destinations/:id'
 
+  #not nested
   get '/destinations', to: "destinations#index", as:"destinations"
+  #nested
   get '/goals/:id/destinations', to:"destinations#index", as:"goal_destinations"
+
+  # #not nested (I don't want to support this way of making new destination)
+  # ##get'/destinations/new', to: "destinations#new", as:"new_destination"
+  
+  #nested
+  get '/goals/:id/destinations/new', to:"destinations#new", as:"new_goal_destination"
+  post '/destinations', to:"destinations#create" #without this,form goes nowhere
+
+  # resources :goals do
+  #   resources :destinations
+  # end 
+
 end
 
