@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
+  devise_for :travelers
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   root to: "application#welcome"
   #resources :destinations
   resources :goals
-  resources :travelers
 
   # #custom link of /passport
   # get 'passport', :to => 'destinations#index' 
