@@ -10,7 +10,7 @@ class GoalsController < ApplicationController
 
     def new
        @goal = Goal.new
-       10.times{@goal.destinations.build} #getting destination_id and traveler_id automatically
+       5.times{@goal.destinations.build} #getting destination_id and traveler_id automatically
     end 
 
     def create
@@ -45,7 +45,7 @@ class GoalsController < ApplicationController
     private 
 
     def goal_params #defining strong params
-        params.require(:goal).permit(:name, destinations_attributes:[:location, :description, :date_traveled, :completed, :traveler_id, :goal_id])
+        params.require(:goal).permit(:name, destinations_attributes:[:id, :location, :description, :date_traveled, :completed, :traveler_id, :goal_id])
     end 
 
     def find_goal

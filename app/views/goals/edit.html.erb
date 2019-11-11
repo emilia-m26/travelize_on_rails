@@ -1,10 +1,4 @@
 <h1>Edit goal page</h1>
 
-<%= form_for @goal do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name %>
-<%= f.submit %>
-<% end %>
+<%= render 'form', goal_partial: @goal %>
 
-
-(later add ability to edit destinations within goal form)
