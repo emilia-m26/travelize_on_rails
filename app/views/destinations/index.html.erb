@@ -1,1 +1,7 @@
 <h4>This will be passport page</h4>
+
+<ul>
+    <% @destinations.each do |d| %>
+        <li><%= link_to d.location %></li>
+    <% end %>
+</ul>

@@ -1,4 +1,6 @@
 class Traveler < ApplicationRecord
+    include ActiveModel::Validations
+    
     has_many :destinations
     has_many :goals, through: :destinations
 
