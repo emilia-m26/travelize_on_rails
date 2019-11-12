@@ -20,9 +20,6 @@
 
 
 
-    
-
-
     <nav class="navbar navbar-expand-lg navbar-light bg-warning">
     <a class="navbar-brand text-white" href="#">Travelize</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,28 +28,30 @@
     <div class="collapse navbar-collapse" id="">
       <ul class="navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link text-white" href="/goals">My Goals<span class="sr-only">(current)</span></a>
+          <a class="nav-link text-white" href="/goals">My Goals</a>
         </li>
-      
         <li class="nav-item">
-          <a class="nav-link text-white" href="/passport">My Passport</a>
+          <a class="nav-link text-white" href="/destinations">My Passport</a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-white" href="/travelers">Travel Inspiration</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="/logout">Log Out</a>
+        <li class="nav-item active">
+          <a class="nav-link text-white" href="/travelers/edit">My Account</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          <a class="nav-link text-white" href="/travelers/sign_out">Log Out</a>
         </li>
       </ul>
     </div>
-  </nav>
+    </nav>
+    
+    
 
-  
+
 
   <%= yield %>
+
   <div class="push"></div>
   </div>
   <footer class="branding fixed-bottom bg-warning text-white"><br>
