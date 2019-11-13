@@ -10,7 +10,7 @@ class GoalsController < ApplicationController
 
     def new
        @goal = Goal.new
-       5.times{@goal.destinations.build} #getting destination_id and traveler_id automatically
+       8.times{@goal.destinations.build} #getting destination_id and traveler_id automatically
     end 
 
     def create
