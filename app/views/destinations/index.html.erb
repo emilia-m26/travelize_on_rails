@@ -1,5 +1,5 @@
 <ul>
     <% @goal.destinations.each do |d| %>
-        <li><%= link_to d.location, goal_destination_path(d) %></li>
+        <li><%= link_to d.location, goal_destination_path(@goal, d) %></li>
     <% end %>
 </ul>

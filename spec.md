@@ -17,7 +17,7 @@ Specs:
 - [ ] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
 - [x] Include signup (how e.g. Devise)
     using Devise, customized to include name, username, email and password at creation of account
-- [ ] Include login (how e.g. Devise)
+- [ ] Include login (how e.g. Devise
 - [x] Include logout (how e.g. Devise)
     Using Devise, changed default and now using delete through :get method
 - [ ] Include third party signup/login (how e.g. Devise/OmniAuth)

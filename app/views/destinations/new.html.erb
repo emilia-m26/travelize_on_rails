@@ -1,5 +1,6 @@
 <%= form_for @destination do |f| %>
 <%= f.hidden_field :goal_id, value:@destination.goal_id %>
+<%= f.hidden_field :traveler_id, value:@destination.traveler_id %>
 <%= f.label :location %>
 <%= f.text_field :location %>
 

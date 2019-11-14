@@ -6,18 +6,27 @@ class DestinationsController < ApplicationController
             @goal =Goal.find(params[:id])
             @destinations = @goal.destinations
         else
-            @destinations = Destination.all
+            #@destinations = Destination.all
+            redirect_to '/goals'
         end 
     end 
 
     def show
-        # do nested route to show a destination details
+        @destination = Destination.find(params[:id])
+        if params[:goal_id]
+            @goal = Goal.find(params[:goal_id])
+            if @destination.goal_id != @goal.id
+                redirect_to '/goals'
+            end
+        end 
+
     end 
 
     def new
-        if params[:id]
-            @goal = Goal.find(params[:id])
+        if params[:goal_id]
+            @goal = Goal.find(params[:goal_id])
             @destination = @goal.destinations.build
+            redirect_to '/goals/:id/destination'
         else
             @destination = Destination.new
         end
