@@ -2,9 +2,6 @@ class DestinationsController < ApplicationController
 
 
     def index
-        #render :layout => 'passport'
-        #using for passport page
-         #will list a traveler's completed destinations
         if params[:id]
             @goal =Goal.find(params[:id])
             @destinations = @goal.destinations
@@ -22,14 +19,14 @@ class DestinationsController < ApplicationController
             @goal = Goal.find(params[:id])
             @destination = @goal.destinations.build
         else
-        @destination = Destination.new
+            @destination = Destination.new
         end
     end 
     
     def create
         Destination.create(destination_params)
         #need to figure out redirect
-        #redirect_to "/goals/:id"
+        redirect_to "/goals/:id"
     end 
 
     def edit

@@ -7,20 +7,11 @@ Rails.application.routes.draw do
   #resources :destinations
   resources :goals
 
-  # #custom link of /passport
-  # get 'passport', :to => 'destinations#index' 
-  #custom link for travel inspiration - lists all users
-  get 'travel-inspiration', :to => 'travelers#index'
-  #custom link for signup
-  get 'signup', :to => 'travelers#new' 
+  get '/travel-inspiration', to:"application#inspiration"
 
-  # #nested index route to display destinations for a specific goal
-  # get 'goals/:id/destinations'
-  # #nested show route to dispaly specific destination details
-  # get 'goals/:id/destinations/:id'
+  get '/passport', to:"application#passport"
 
-  #not nested
-  get '/destinations', to: "destinations#index", as:"destinations"
+  #get '/destinations', to: "destinations#index", as:"destinations"
   #nested
   get '/goals/:id/destinations', to:"destinations#index", as:"goal_destinations"
 
@@ -30,6 +21,9 @@ Rails.application.routes.draw do
   #nested
   get '/goals/:id/destinations/new', to:"destinations#new", as:"new_goal_destination"
   post '/destinations', to:"destinations#create" #without this,form goes nowhere
+
+  # #nested show route to dispaly specific destination details
+  get 'goals/:id/destinations/:id', to:"destinations#show", as:"goal_destination"
 
   # resources :goals do
   #   resources :destinations
