@@ -3,7 +3,7 @@ class DestinationsController < ApplicationController
 
     def index
         if params[:id]
-            @goal =Goal.find(params[:id])
+            @goal =Goal.find_by(params[:id])
             @destinations = @goal.destinations
         else
             #@destinations = Destination.all
@@ -12,9 +12,9 @@ class DestinationsController < ApplicationController
     end 
 
     def show
-        @destination = Destination.find(params[:id])
+        @destination = Destination.find(params[:id]) #doesn't function with find_by
         if params[:goal_id]
-            @goal = Goal.find(params[:goal_id])
+            @goal = Goal.find_by(params[:goal_id])
             if @destination.goal_id != @goal.id
                 redirect_to '/goals'
             end
@@ -25,17 +25,21 @@ class DestinationsController < ApplicationController
     def new
         if params[:goal_id]
             @goal = Goal.find(params[:goal_id])
-            @destination = @goal.destinations.build
-            redirect_to '/goals/:id/destination'
+            @destination = @goal.destinations.build(destination_params)
+            redirect_to new_goal_destination_path
         else
             @destination = Destination.new
         end
     end 
     
     def create
-        Destination.create(destination_params)
-        #need to figure out redirect
-        redirect_to "/goals/:id"
+        @goal = Goal.find_by(params[:id])
+        @destination = @goal.destinations.build(destination_params)
+        if @destination.save
+            redirect_to new_goal_destination_path
+        else
+            render "goals/show"
+        end 
     end 
 
     def edit
