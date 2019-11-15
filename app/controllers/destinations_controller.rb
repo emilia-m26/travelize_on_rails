@@ -16,7 +16,7 @@ class DestinationsController < ApplicationController
         if params[:goal_id]
             @goal = Goal.find_by(params[:goal_id])
             if @destination.goal_id != @goal.id
-                redirect_to '/goals'
+                redirect_to goal_destinations_path
             end
         end 
 
@@ -35,8 +35,9 @@ class DestinationsController < ApplicationController
     def create
         @goal = Goal.find_by(params[:id])
         @destination = @goal.destinations.build(destination_params)
+
         if @destination.save
-            redirect_to new_goal_destination_path
+            redirect_to goal_destinations_path(@goal)
         else
             render "goals/show"
         end 
@@ -54,7 +55,6 @@ class DestinationsController < ApplicationController
     private
     def destination_params
         params.require(:destination).permit(:location, :description, :date_traveled, :completed, :traveler_id, :goal_id)
-  
     end 
 
 end
