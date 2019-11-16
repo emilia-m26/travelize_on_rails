@@ -8,9 +8,12 @@ class ApplicationController < ActionController::Base
     end
 
     def inspiration
+        #listing all travelers with travel experience, username, and link to their personal passport page
+        @travelers = Traveler.all
     end 
 
     def passport
+        
     end 
     
     #overrides devise automatic redirect to edit page

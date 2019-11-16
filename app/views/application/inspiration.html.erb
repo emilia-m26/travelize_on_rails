@@ -1,1 +1,8 @@
 <h3>travel inspiration page</h3>
+
+
+<ul>
+    <% @travelers.each do |traveler| %>
+        <li><%= traveler.username.capitalize %></li>
+    <% end %>
+</ul>

@@ -8,4 +8,6 @@ class Destination < ApplicationRecord
          self.date_traveled.strftime("%b %Y") 
      end  
 
+       
+
 end

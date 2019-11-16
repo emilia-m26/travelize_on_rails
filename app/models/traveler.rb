@@ -25,5 +25,8 @@ class Traveler < ApplicationRecord
       end 
     end
 
+  #   def travel_experience
+  #     Traveler.first.destinations.where(completed:true).size
+  #  end  
 
 end
