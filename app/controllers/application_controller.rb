@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
     
     #overrides devise automatic redirect to edit page
     def after_sign_in_path_for(resource)
-        stored_location_for(resource) || goals_path
+        @traveler = current_traveler
+        goals_path
     end
 end
