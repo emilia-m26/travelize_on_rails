@@ -2,16 +2,17 @@ class GoalsController < ApplicationController
     before_action :find_goal, only: [:show, :edit, :update, :destroy]
 
     def index
-        @goals = Goal.all
+        @traveler = current_traveler
+        @goals = @traveler.goals
     end
 
-    def show
-        
-    end 
-
     def new
-       @goal = Goal.new
-       8.times{@goal.destinations.build} #getting destination_id and traveler_id automatically
+        if current_traveler
+            @goal = current_traveler.goals.new
+            8.times{@goal.destinations.build} #getting destination_id and traveler_id automatically
+        else
+            redirect_to 
+        end 
     end 
 
     def create
@@ -27,6 +28,11 @@ class GoalsController < ApplicationController
         end 
             
     end
+
+    def show
+        
+    end 
+
 
     def edit
     end

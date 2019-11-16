@@ -2,6 +2,7 @@ class DestinationsController < ApplicationController
 
 
     def index
+        @traveler = current_traveler
         if params[:id]
             @goal =Goal.find_by(params[:id])
             @destinations = @goal.destinations
@@ -9,17 +10,6 @@ class DestinationsController < ApplicationController
             #@destinations = Destination.all
             redirect_to '/goals'
         end 
-    end 
-
-    def show
-        @destination = Destination.find(params[:id]) #doesn't function with find_by
-        if params[:goal_id]
-            @goal = Goal.find_by(params[:goal_id])
-            if @destination.goal_id != @goal.id
-                redirect_to goal_destinations_path
-            end
-        end 
-
     end 
 
     def new
@@ -41,6 +31,17 @@ class DestinationsController < ApplicationController
         else
             render "goals/show"
         end 
+    end 
+
+    def show
+        @destination = Destination.find_by(params[:id]) #doesn't function with find_by
+        if params[:id]
+            @goal = Goal.find_by(params[:goal_id])
+            if @destination.goal_id != @goal.id
+                redirect_to goal_destinations_path
+            end
+        end 
+
     end 
 
     def edit
