@@ -5,15 +5,14 @@ class Traveler < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable
 
-         #include ActiveModel::Validations
-    
     has_many :destinations
     has_many :goals, through: :destinations
 
     # has_secure_password
-    # validates_presence_of :name, :password, :password_confirmation
-    # validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
-    # validates :email, uniqueness: true
+    validates_presence_of :name, uniqueness: true
+    validates :username, presence: :true, uniqueness: { case_sensitive: false }
+    validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
+    validates :email, uniqueness: true
 
     def self.from_omniauth(auth)
       where(provider: auth.provider, uid: auth.uid).first_or_create do |traveler|
