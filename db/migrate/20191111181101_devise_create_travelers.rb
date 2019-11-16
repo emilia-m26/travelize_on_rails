@@ -6,7 +6,7 @@ class DeviseCreateTravelers < ActiveRecord::Migration[6.0]
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
-      t.string :name
+      t.string :name, null: false, default: ""
       t.string :username
 
       ## Recoverable
@@ -34,6 +34,7 @@ class DeviseCreateTravelers < ActiveRecord::Migration[6.0]
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
 
+      
 
       t.timestamps null: false
     end
