@@ -21,7 +21,7 @@ Specs:
     Login using Devise
 - [x] Include logout (how e.g. Devise)
     Using Devise, changed default and now using delete through :get method
-- [ ] Include third party signup/login (how e.g. Devise/OmniAuth)
+- [x] Include third party signup/login (how e.g. Devise/OmniAuth)
 - [x] Include nested resource show or index (URL e.g. users/2/recipes)
     Has nested show (showing details of specific destination) and nested index (showing destinations specific to a goal)
 - [ ] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
