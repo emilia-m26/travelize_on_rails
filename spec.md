@@ -22,9 +22,11 @@ Specs:
 - [x] Include logout (how e.g. Devise)
     Using Devise, changed default and now using delete through :get method
 - [x] Include third party signup/login (how e.g. Devise/OmniAuth)
-- [x] Include nested resource show or index (URL e.g. users/2/recipes)
+    OmniAuth with GitHub
+- [ ] Include nested resource show or index (URL e.g. users/2/recipes)
     Has nested show (showing details of specific destination) and nested index (showing destinations specific to a goal)
 - [ ] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
+    Has nested new where a destination can be added to an existing goal
 - [ ] Include form display of validation errors (form URL e.g. /recipes/new)
 
 Confirm:
