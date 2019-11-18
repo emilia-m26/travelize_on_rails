@@ -1,7 +1,7 @@
 # Specifications for the Rails Assessment
 
 Specs:
-- [x] Using Ruby on Rails for the project
+- [x] Using Ruby on Rails for the project  
     used Ruby on Rails, no scaffolding
 - [x] Include at least one has_many relationship (x has_many y; e.g. User has_many Recipes) 
     Traveler has_many Destinations  / Goal has_many Destinations
@@ -13,7 +13,8 @@ Specs:
     Traveler has_many goals through Destinations / Goal has_many travelers through Destinations
 - [x] The "through" part of the has_many through includes at least one user submittable attribute, that is to say, some attribute other than its foreign keys that can be submitted by the app's user (attribute_name e.g. ingredients.quantity)
     Has more than only foreign keys --  has location, description, date traveled, completed.
-- [ ] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
+- [x] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
+    Have validations in traveler, goal, and destination models
 - [ ] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
 - [x] Include signup (how e.g. Devise)
     using Devise, customized to include name, username, email and password at creation of account
