@@ -7,12 +7,8 @@ class GoalsController < ApplicationController
     end
 
     def new
-        if current_traveler
-            @goal = current_traveler.goals.new
-            8.times{@goal.destinations.build} #getting destination_id and traveler_id automatically
-        else
-            redirect_to 
-        end 
+        @goal = Goal.new
+        8.times{@goal.destinations.build} #getting destination_id and traveler_id automatically    
     end 
 
     def create
