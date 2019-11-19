@@ -1,5 +1,7 @@
 <h1> Travel Goals </h1>
 
+<h3> Hello <%=@traveler.name.capitalize %>! Here are your goals</h3>
+
 <ul>
     <% @goals.each do |goal| %>
         <li><%= link_to goal.name, goal_destinations_path(goal) %></li>

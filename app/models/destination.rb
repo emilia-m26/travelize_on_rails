@@ -4,8 +4,10 @@ class Destination < ApplicationRecord
 
      validates_presence_of :location
 
-     def travel_date #helper method to use later for passport page, to display date traveled info
-         self.date_traveled.strftime("%b %Y") 
+     #helper method to use for travel inspiration page, when displaying travel experience for a specific user
+
+     def travel_experience 
+         self.where(completed: true).count   
      end  
 
        

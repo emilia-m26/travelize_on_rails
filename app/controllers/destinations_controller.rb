@@ -2,7 +2,7 @@ class DestinationsController < ApplicationController
 
 
     def index
-        @traveler = current_traveler
+        #@traveler = current_traveler
         if params[:id]
             @goal =Goal.find_by(params[:id])
             @destinations = @goal.destinations
