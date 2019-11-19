@@ -2,8 +2,13 @@ class GoalsController < ApplicationController
     before_action :find_goal, only: [:show, :edit, :update, :destroy]
 
     def index
+        if traveler_signed_in?
         @traveler = current_traveler
         @goals = @traveler.goals
+        #byebug
+        else 
+            redirect_to new_traveler_session_path
+        end 
     end
 
     def new
