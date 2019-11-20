@@ -13,10 +13,11 @@ class GoalsController < ApplicationController
 
     def new
         @goal = Goal.new
-        8.times{@goal.destinations.build} #getting destination_id and traveler_id automatically    
+        8.times{@goal.destinations.build(traveler:current_traveler)} #getting destination_id and traveler_id automatically    
     end 
 
     def create
+        #byebug
         @goal = Goal.new(goal_params)
         #add validations
         if @goal.save

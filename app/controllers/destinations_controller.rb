@@ -4,7 +4,8 @@ class DestinationsController < ApplicationController
     def index
         #@traveler = current_traveler
         if params[:id]
-            @goal =Goal.find_by(params[:id])
+            @goal =Goal.find_by(id:params[:id])
+            #byebug
             @destinations = @goal.destinations
         else
             #@destinations = Destination.all
@@ -34,9 +35,9 @@ class DestinationsController < ApplicationController
     end 
 
     def show
-        @destination = Destination.find_by(params[:id]) #doesn't function with find_by
+        @destination = Destination.find_by(id:params[:id]) 
         if params[:id]
-            @goal = Goal.find_by(params[:goal_id])
+            @goal = Goal.find_by(id:params[:goal_id])
             if @destination.goal_id != @goal.id
                 redirect_to goal_destinations_path
             end

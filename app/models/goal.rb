@@ -1,7 +1,8 @@
 class Goal < ApplicationRecord
     has_many :destinations
-    has_many :travelers, through: :destinations
-    accepts_nested_attributes_for :destinations, reject_if: :all_blank #all_blank works if no checkbox
+    has_many :travelers, through: :destinations 
+    accepts_nested_attributes_for :destinations, reject_if: proc {|attributes| attributes["location"].blank?}
+    #all_blank works if no checkbox
     #field_for checks for the above macro to see if it is present
     #before creating more than one field for destinations
     
