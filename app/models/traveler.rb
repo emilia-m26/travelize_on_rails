@@ -6,7 +6,7 @@ class Traveler < ApplicationRecord
          :omniauthable
 
     has_many :destinations
-    has_many :goals, through: :destinations
+    has_many :goals, -> { distinct }, through: :destinations
 
     # has_secure_password
     validates_presence_of :name, uniqueness: true

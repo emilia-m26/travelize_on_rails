@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root to: "application#welcome"
   #resources :destinations
-  resources :goals, except: [:show]
+  
 
   #custom travel-inspiration page
   get '/travel-inspiration', to:"application#inspiration"
@@ -12,14 +12,15 @@ Rails.application.routes.draw do
   get '/passport', to:"application#passport"
 
   #nested index
-  get '/goals/:id/destinations', to:"destinations#index", as:"goal_destinations"
+  get '/goals/:goal_id/destinations', to:"destinations#index", as:"goal_destinations"
   
   #nested new
-  get '/goals/:id/destinations/new', to:"destinations#new", as:"new_goal_destination"
-  post '/destinations', to:"destinations#create" #without this,form goes nowhere
+  get '/goals/:goal_id/destinations/new', to:"destinations#new", as:"destinations"
+  post '/goals/:goal_id/destinations', to:"destinations#create" #without this,form goes nowhere
 
   #nested show route to dispaly specific destination details
   get 'goals/:goal_id/destinations/:id', to:"destinations#show", as:"goal_destination"
-
+  
+  resources :goals, except: [:show]
 end
 

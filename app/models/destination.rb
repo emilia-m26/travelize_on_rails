@@ -15,7 +15,7 @@ class Destination < ApplicationRecord
 
      def self.passport(traveler)
           where(completed: true, traveler_id: traveler.id)
-          #Destination.where(completed:true, traveler_id:2)
+          #Destination.where(completed:true, traveler_id:1)
      end
 
        
