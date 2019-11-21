@@ -1,10 +1,26 @@
-<h1>Let's Create a New Goal </h1>
-
-
 <% if @errors && !@errors.empty? %>
     <% @errors.each do |e| %>
         <p><%= e %></p>
     <% end %>
 <% end %>
 
-<%= render 'form', goal_partial: @goal %>
+
+<h1>Let's Create a New Goal </h1>
+
+<h2> Goal: </h2>
+<%= form_for @goal do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+
+
+<h2> Destinations: </h2>
+<p>
+    <%= f.fields_for :destinations do |d| %>
+    <%= d.hidden_field :traveler_id, value:current_traveler.id %>
+    <%= d.label :location %>
+    <%= d.text_field :location %>
+</p>
+
+    <% end %>
+<%= f.submit %>
+    <% end %>

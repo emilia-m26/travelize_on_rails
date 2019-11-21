@@ -25,7 +25,7 @@ class GoalsController < ApplicationController
         #@goal = Goal.new(goal_params)
         @goal = current_traveler.goals.build(goal_params)
         if @goal.save
-            redirect_to goal_path(@goal)
+            redirect_to goals_path
         else
             @errors = @goal.errors.full_messages #[2]
             #flash[:error]
@@ -46,7 +46,7 @@ class GoalsController < ApplicationController
     def update
         @goal.update(goal_params)
         #add validations
-        redirect_to goal_path(@goal)
+        redirect_to goal_destinations_path(@goal)
     end 
 
     def destroy

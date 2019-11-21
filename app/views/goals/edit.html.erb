@@ -1,4 +1,25 @@
 <h1>Edit goal page</h1>
 
-<%= render 'form', goal_partial: @goal %>
+<h2> Goal: </h2>
+<%= form_for @goal do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
 
+
+<h2> Destinations: </h2>
+<p>
+    <%= f.fields_for :destinations do |d| %>
+    <%= d.hidden_field :traveler_id, value:current_traveler.id %>
+    <%= d.label :location %>
+    <%= d.text_field :location %>
+    <%= d.label :description %>
+    <%= d.text_field :description %>
+    <%= d.label :completed %>
+    <%= d.check_box :completed %>
+    <%= d.label :date_traveled%>
+    <%= d.date_field :date_traveled %>
+</p>
+
+    <% end %>
+<%= f.submit %>
+    <% end %>
