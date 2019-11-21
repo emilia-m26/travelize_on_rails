@@ -1,8 +1,10 @@
 <h3>travel inspiration page</h3>
 
-
 <ul>
     <% @travelers.each do |traveler| %>
-        <li><%= traveler.username.capitalize %> Travel Experience:<%= Destination.travel_experience(traveler)%>  </li>
+        <li><%= traveler.username.capitalize %> 
+            <br>
+            Travel Experience:<%= Destination.travel_experience(traveler)%>  
+        </li>
     <% end %>
 </ul>
