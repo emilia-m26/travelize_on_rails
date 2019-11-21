@@ -2,24 +2,28 @@ class GoalsController < ApplicationController
     before_action :find_goal, only: [:show, :edit, :update, :destroy]
 
     def index
-        #if traveler_signed_in?
+        if traveler_signed_in?
         @traveler = current_traveler
-        @goals = Goal.all
+        @goals = @traveler.goals
+        
         #byebug
-        # else 
-        #     redirect_to new_traveler_session_path
-        # end 
+        else 
+           #redirect_to new_traveler_session_path
+           render  '/travelers/sign_in'
+           #fix redirect
+        end 
     end
 
     def new
         @goal = Goal.new
-        8.times{@goal.destinations.build(traveler:current_traveler)} #getting destination_id and traveler_id automatically    
+        8.times{@goal.destinations.build(traveler:current_traveler)} #getting destination_id and traveler_id automatically 
+        #creating a goal for each destination created  
+        #tested controller, believe its the form
     end 
 
     def create
-        #byebug
-        @goal = Goal.new(goal_params)
-        #add validations
+        #@goal = Goal.new(goal_params)
+        @goal = current_traveler.goals.build(goal_params)
         if @goal.save
             redirect_to goal_path(@goal)
         else
@@ -32,7 +36,7 @@ class GoalsController < ApplicationController
     end
 
     def show
-        
+        #close out goal show page/use nested show for showing goals
     end 
 
 
@@ -47,7 +51,6 @@ class GoalsController < ApplicationController
 
     def destroy
         @goal.destroy
-        #add validations
         redirect_to goals_path
     end 
 

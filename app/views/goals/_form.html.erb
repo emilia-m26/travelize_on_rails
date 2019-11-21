@@ -7,7 +7,7 @@
 <h2> Destinations: </h2>
 <p>
     <%= f.fields_for :destinations do |d| %>
-        <%= d.hidden_field :traveler_id, value:current_traveler.id %>
+    <%= d.hidden_field :traveler_id, value:current_traveler.id %>
     <%= d.label :location %>
     <%= d.text_field :location %>
     <!--
