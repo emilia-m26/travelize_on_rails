@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   root to: "application#welcome"
   #resources :destinations
-  resources :goals
+  resources :goals, except: [:show]
 
   get '/travel-inspiration', to:"application#inspiration"
 
