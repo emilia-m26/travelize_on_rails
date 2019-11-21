@@ -15,7 +15,8 @@ Specs:
     Has more than only foreign keys --  has location, description, date traveled, completed.
 - [x] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)  
     Have validations in traveler, goal, and destination models
-- [ ] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
+- [x] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)  
+    Destination.travel_experience which is being used in URL: /travel-inspiration
 - [x] Include signup (how e.g. Devise)  
     using Devise, customized to include name, username, email and password at creation of account
 - [x] Include login (how e.g. Devise)  
