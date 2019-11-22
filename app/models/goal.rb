@@ -1,5 +1,5 @@
 class Goal < ApplicationRecord
-    has_many :destinations
+    has_many :destinations, :dependent => :destroy #makes sure to delete goal AND destinations
     has_many :travelers, through: :destinations 
     accepts_nested_attributes_for :destinations, reject_if: proc {|attributes| attributes["location"].blank?}
     #all_blank works if no checkbox
