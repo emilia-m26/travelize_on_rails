@@ -1,5 +1,11 @@
-<h3>destination details<h3>
+<h2>Destination Details</h2>
 
-<h2><%= @destination.location%></h3>
-<h2><%= @destination.description%></h3>
-<h2><%= @destination.date_traveled%></h3>
+<h4><%= @destination.location%></h4>
+<h6><%= @destination.description%></h6>
+<h6><%= @destination.date_traveled%></h6>
+<br>
+<br>
+<div class="btn-group" role="group" aria-label="Basic example">
+    <a class="btn btn-secondary btn-sm" href="/goals/<%=@goal.id%>/destinations/new" role="button">Add Destination</a>
+    <a class="btn btn-secondary btn-sm" href="/goals/<%=@goal.id%>/edit" role="button">Complete Travel</a>
+</div>

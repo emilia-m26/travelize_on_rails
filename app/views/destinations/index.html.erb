@@ -1,5 +1,14 @@
+<h4><%=@goal.name%></h4>
+
 <ul>
     <% @goal.destinations.each do |d| %>
         <li><%= link_to d.location, goal_destination_path(@goal, d) %></li>
     <% end %>
 </ul>
+
+<div class="btn-group" role="group" aria-label="Basic example">
+    <a class="btn btn-secondary btn-sm" href="/goals/<%=@goal.id%>/destinations/new" role="button">Add Destination</a>
+    <a class="btn btn-secondary btn-sm" href="/goals/<%=@goal.id%>/edit" role="button">Edit Goal</a>
+    <a class="btn btn-warning btn-sm" href="/goals/<%=@goal.id%>/destroy" role="button">Delete Goal</a>
+</div>
+
