@@ -12,13 +12,13 @@ Clone this repository and execute:
 
 Then execute:
 
-    $rake db:migrate
+    $rails db:migrate
 
 to create the database.
 
 Next, execute:
 
-    $rake db:seed
+    $rails db:seed
 
 to add sample travelers, goals, and destination information to the database.
 
@@ -34,7 +34,6 @@ Below are sample signons to use:
 | ------------------  | --------- |
 | emi@example.com     | password  |
 | alex@example.com    | password  |
-| liz@example.com     | password  |
 | surfer@example.com  | password  |
 
 
