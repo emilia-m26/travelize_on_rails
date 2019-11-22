@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   #custom travel-inspiration page
   get '/travel-inspiration', to:"application#inspiration"
+  
   #custom passport page
   get '/passport', to:"application#passport"
 

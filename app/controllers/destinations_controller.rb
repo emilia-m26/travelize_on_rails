@@ -2,7 +2,6 @@ class DestinationsController < ApplicationController
 
 
     def index
-        #@traveler = current_traveler
         if params[:goal_id]
             @goal =Goal.find_by(id:params[:goal_id])
             #byebug
@@ -14,15 +13,6 @@ class DestinationsController < ApplicationController
     end 
 
     def new
-        # if params[:id]
-        #     @goal = Goal.find(params[:id])
-        #     @destination = @goal.destinations.build
-        #     #byebug
-        #     #redirect_to new_goal_destination_path
-        # else
-        #     @destination = Destination.new
-        # end
-
         if params[:goal_id]
             @goal = Goal.find_or_create_by(id:params[:goal_id])
             @destination = @goal.destinations.build
@@ -32,18 +22,9 @@ class DestinationsController < ApplicationController
     end 
     
     def create
-        #byebug
         @goal = Goal.find_by(id:params[:goal_id])
-        # @destination = @goal.destinations.build(destination_params)
-
-        # if @destination.save
-        #     redirect_to goal_destinations_path(@goal)
-        # else
-        #     render "goals/show"
-        # end 
         @traveler = current_traveler
         @destination = @traveler.destinations.build(destination_params)
-        #byebug
             if @destination.save
                 redirect_to goal_destinations_path(@goal)
             else
@@ -52,8 +33,7 @@ class DestinationsController < ApplicationController
     end 
 
     def show
-        @destination = Destination.find_by(id:params[:id]) 
-        #byebug
+        @destination = Destination.find_by(id:params[:id])
         if params[:id]
             @goal = Goal.find_by(id:params[:goal_id])
             if @destination.goal_id != @goal.id
@@ -63,14 +43,14 @@ class DestinationsController < ApplicationController
 
     end 
 
-    def edit
-    end
+    # def edit
+    # end
 
-    def update
-    end 
+    # def update
+    # end 
 
-    def destroy
-    end
+    # def destroy
+    # end
 
     private
     def destination_params

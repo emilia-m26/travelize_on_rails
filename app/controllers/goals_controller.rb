@@ -5,10 +5,7 @@ class GoalsController < ApplicationController
         if traveler_signed_in?
         @traveler = current_traveler
         @goals = @traveler.goals
-        
-        #byebug
-        else 
-           #redirect_to new_traveler_session_path
+        else
            render  '/travelers/sign_in'
            #fix redirect
         end 
@@ -17,17 +14,14 @@ class GoalsController < ApplicationController
     def new
         @goal = Goal.new
         8.times{@goal.destinations.build(traveler:current_traveler)} #getting destination_id and traveler_id automatically 
-        #creating a goal for each destination created  
-        #tested controller, believe its the form
     end 
 
     def create
-        #@goal = Goal.new(goal_params)
         @goal = current_traveler.goals.build(goal_params)
         if @goal.save
             redirect_to goals_path
         else
-            @errors = @goal.errors.full_messages #[2]
+            @errors = @goal.errors.full_messages
             #flash[:error]
             render :new
             #add custom error message if goal not created
@@ -35,9 +29,8 @@ class GoalsController < ApplicationController
             
     end
 
-    def show
-        #close out goal show page/use nested show for showing goals
-    end 
+    # def show
+    # end 
 
 
     def edit
