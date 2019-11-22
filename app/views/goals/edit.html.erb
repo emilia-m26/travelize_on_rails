@@ -1,12 +1,14 @@
-<h1>Edit goal page</h1>
 
-<h2> Goal: </h2>
+
+<h2> Edit Goal: </h2>
+<br>
 <%= form_for @goal do |f| %>
 <%= f.label :name %>
 <%= f.text_field :name %>
 
 
-<h2> Destinations: </h2>
+<h2> Edit Destinations: </h2>
+<br>
 <p>
     <%= f.fields_for :destinations do |d| %>
     <%= d.hidden_field :traveler_id, value:current_traveler.id %>
