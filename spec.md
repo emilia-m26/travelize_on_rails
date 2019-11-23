@@ -25,14 +25,15 @@ Specs:
     Using Devise, changed default and now using delete through :get method
 - [x] Include third party signup/login (how e.g. Devise/OmniAuth)  
     OmniAuth with GitHub
-- [ ] Include nested resource show or index (URL e.g. users/2/recipes)  
-    Has nested show (showing details of specific destination) and nested index (showing destinations specific to a goal)
-- [ ] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)  
-    Has nested new where a destination can be added to an existing goal
-- [ ] Include form display of validation errors (form URL e.g. /recipes/new)
+- [x] Include nested resource show or index (URL e.g. users/2/recipes)  
+    Has nested show (goals/:goal_id/destinations/:id) and nested index (goals/:goal_id/destinations)
+- [x] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)  
+    Has nested new where a destination can be added to an existing goal (goals/:goal_id/destinations/new)
+- [x] Include form display of validation errors (form URL e.g. /recipes/new)  
+    URL /goals/new
 
 Confirm:
-- [ ] The application is pretty DRY
-- [ ] Limited logic in controllers
-- [ ] Views use helper methods if appropriate
-- [ ] Views use partials if appropriate
+- [x] The application is pretty DRY
+- [x] Limited logic in controllers
+- [x] Views use helper methods if appropriate
+- [x] Views use partials if appropriate
