@@ -3,7 +3,6 @@ class GoalsController < ApplicationController
 
     def index
         if traveler_signed_in?
-        #@traveler = current_traveler
         @goals = current_traveler.goals
         else
         flash[:alert] = "Please sign up or login to see your goals."
@@ -34,11 +33,14 @@ class GoalsController < ApplicationController
 
 
     def edit
+        if @goal.travelers.first != current_traveler
+            flash[:alert] = "You are not authorized to view that page."
+            redirect_to goals_path  
+        end
     end
 
     def update
         @goal.update(goal_params)
-        #add validations
         redirect_to goal_destinations_path(@goal)
     end 
 
