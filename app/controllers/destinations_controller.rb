@@ -2,14 +2,14 @@ class DestinationsController < ApplicationController
 
 
     def index
-        if params[:goal_id]
-            @goal =Goal.find_by(id:params[:goal_id])
-            #byebug
+        @goal = Goal.find_by(id:params[:goal_id])
+        if @goal.travelers.first == current_traveler
+            @goal = Goal.find_by(id:params[:goal_id])
             @destinations = @goal.destinations
         else
-            #@destinations = Destination.all
-            redirect_to '/goals'
-        end 
+            flash[:alert] = "You are not authorized to view that page."
+             redirect_to goals_path
+        end
     end 
 
     def new
@@ -25,22 +25,21 @@ class DestinationsController < ApplicationController
         @goal = Goal.find_by(id:params[:goal_id])
         @traveler = current_traveler
         @destination = @traveler.destinations.build(destination_params)
-            if @destination.save
-                redirect_to goal_destinations_path(@goal)
-            else
-                redirect_to goals_path, notice: 'Destination was not added!'
-            end
+        if @destination.save
+            redirect_to goal_destinations_path(@goal)
+        else
+            redirect_to goals_path, notice: 'Destination was not added!'
+        end
     end 
 
     def show
         @destination = Destination.find_by(id:params[:id])
-        if params[:id]
-            @goal = Goal.find_by(id:params[:goal_id])
-            if @destination.goal_id != @goal.id
-                redirect_to goal_destinations_path
-            end
-        end 
-
+        if @destination.traveler != current_traveler
+            flash[:alert] = "You are not authorized to view that page."
+            redirect_to goals_path
+        else
+            @goal = Goal.find_by(id:params[:goal_id]) 
+        end
     end 
 
     # def edit

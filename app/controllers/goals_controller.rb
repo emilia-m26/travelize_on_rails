@@ -3,11 +3,11 @@ class GoalsController < ApplicationController
 
     def index
         if traveler_signed_in?
-        @traveler = current_traveler
-        @goals = @traveler.goals
+        #@traveler = current_traveler
+        @goals = current_traveler.goals
         else
-           render  '/travelers/sign_in'
-           #fix redirect
+        flash[:alert] = "Please sign up or login to see your goals."
+        redirect_to new_traveler_session_path
         end 
     end
 
@@ -19,12 +19,12 @@ class GoalsController < ApplicationController
     def create
         @goal = current_traveler.goals.build(goal_params)
         if @goal.save
+            flash[:notice] = "Goal was Sucessfully created!"
             redirect_to goals_path
         else
             @errors = @goal.errors.full_messages
-            #flash[:error]
-            render :new
-            #add custom error message if goal not created
+            flash[:alert] = "Oops! Goal not created. Please try again."
+            render :'/goals/new'
         end 
             
     end
@@ -44,6 +44,7 @@ class GoalsController < ApplicationController
 
     def destroy
         @goal.destroy
+        flash[:notice] = "Sucessfully Deleted Goal!"
         redirect_to goals_path
     end 
 
