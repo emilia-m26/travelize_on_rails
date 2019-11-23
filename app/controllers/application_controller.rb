@@ -3,14 +3,6 @@ class ApplicationController < ActionController::Base
      #will not allow for someone not logged in to see any information
     before_action :authenticate_traveler!, :except => [:inspiration, :welcome]
 
-    # #enabling sessions to create authorizations
-    # configure do
-    #     set :public_folder, 'public'
-    #     set :views, 'app/views'
-    #     enable :sessions
-    #     set :session_secret, "pineapple_express"
-    #   end
-   
 
     def welcome
     end
@@ -22,7 +14,6 @@ class ApplicationController < ActionController::Base
 
     def passport
         #this page is to list all completed destinations of a specific traveler
-        #@traveler = current_traveler
     end 
     
     #overrides devise automatic redirect to edit page
