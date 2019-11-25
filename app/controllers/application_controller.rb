@@ -14,6 +14,7 @@ class ApplicationController < ActionController::Base
 
     def passport
         #this page is to list all completed destinations of a specific traveler
+        @traveler = current_traveler
     end 
     
     #overrides devise automatic redirect to edit page

@@ -1,10 +1,11 @@
 class DestinationsController < ApplicationController
     before_action :set_goal, only: [:index, :new, :create, :show]
 
-    def index
+    def index 
         if @goal.travelers.first == current_traveler
             @goal = Goal.find_by(id:params[:goal_id])
-            @destinations = @goal.destinations
+            @destinations = @goal.destinations.sort_by {|destination| destination.location}
+            #byebug
         else
             flash[:alert] = "You are not authorized to view that page."
              redirect_to goals_path
